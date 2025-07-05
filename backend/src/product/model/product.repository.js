@@ -4,8 +4,11 @@ export const addNewProductRepo = async (product) => {
   return await new ProductModel(product).save();
 };
 
-export const getAllProductsRepo = async () => {
-  return await ProductModel.find({});
+export const getAllProductsRepo = async (condition,productPerPage,pageNumber) => {
+  console.log(condition);
+  return await ProductModel.find(condition)
+    .skip(productPerPage * (pageNumber - 1))
+    .limit(productPerPage);
 };
 
 export const updateProductRepo = async (_id, updatedData) => {
@@ -24,8 +27,8 @@ export const getProductDetailsRepo = async (_id) => {
   return await ProductModel.findById(_id);
 };
 
-export const getTotalCountsOfProduct = async () => {
-  return await ProductModel.countDocuments();
+export const getTotalCountsOfProduct = async (condition) => {
+  return await ProductModel.countDocuments(condition);
 };
 
 export const findProductRepo = async (productId) => {

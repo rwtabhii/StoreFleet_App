@@ -1,1 +1,158 @@
-# StoreFleet
+🏩 StoreFleet - E-commerce Backend API
+
+StoreFleet is a robust RESTful API backend designed for a modern e-commerce platform. It is built using Node.js, Express.js, and MongoDB, and supports full user management, product handling, order processing, and secure authentication/authorization mechanisms.
+
+🚀 Features
+
+✅ Authentication & Authorization
+
+Signup/Login using hashed passwords with bcryptjs
+
+JWT-based authentication
+
+Secure cookies for session management
+
+Role-based route access control (user/admin)
+
+🧠 Smart Product Query
+
+Keyword-based product search
+
+Filter by category, price, and rating
+
+Pagination support (10 products per page)
+
+📦 Product & Review Handling
+
+CRUD operations for products
+
+Upload and manage images
+
+Add/update/delete product reviews
+
+Review deletion restricted to review creator
+
+🛒 Order Processing
+
+Create orders with multiple items
+
+Auto-reduce product stock after purchase
+
+Store complete shipping and payment info
+
+🔐 Security & User Control
+
+Forgot password with time-limited token
+
+Reset password via email token
+
+Only admins can update user roles/profiles
+
+📁 Project Structure
+
+StoreFleet/
+├── backend/
+│   ├── config/.env
+│   ├── src/
+│   │   ├── user/
+│   │   ├── product/
+│   │   ├── order/
+│   ├── middlewares/
+│   ├──utils/
+│   ├── server.js
+├── package.json
+
+⚙️ Technologies Used
+
+Backend: Node.js, Express.js
+
+Database: MongoDB with Mongoose ODM
+
+Authentication: JWT, bcryptjs, cookies
+
+Email Service: Nodemailer (SMTP)
+
+Validation: validator.js, Mongoose schema validation
+
+Error Handling: Centralized custom middleware
+
+🔧 Setup & Installation
+
+1. Clone the Repository
+
+git clone https://github.com/your-username/StoreFleet.git
+cd StoreFleet/backend
+
+2. Install Dependencies
+
+npm install
+
+3. Environment Configuration
+
+Create a .env file in the backend/config/ directory with:
+
+PORT=5000
+MONGO_URI=your_mongo_connection_string
+JWT_Secret=your_jwt_secret
+JWT_Expire=5d
+COOKIE_EXPIRES_IN=5
+STORFLEET_SMPT_MAIL=your_email@gmail.com
+STORFLEET_SMPT_MAIL_PASSWORD=your_app_password
+
+4. Running the Server
+
+# From root
+npx nodemon backend/server.js
+
+# Or from backend directory
+cd backend
+npx nodemon server.js
+
+💌 Postman API Documentation
+
+Use the public documentation for testing endpoints:
+
+Postman Link: https://documenter.getpostman.com/view/xxxxxxxxxx (Replace with your own link)
+
+📈 Resolved Backend Issues
+
+Environment configuration works from both root and backend
+
+Signup uses Mongoose pre-save with bcryptjs hashing
+
+Duplicate email handling (MongoDB validation)
+
+Forgot password system with token-based expiry
+
+Password reset via secure link in email
+
+Admin-only access protection for sensitive routes
+
+Admin can update user profiles and change roles
+
+Search, filter, and pagination implemented efficiently
+
+Product reviews are user-controlled (only owner can delete)
+
+Orders validate stock before completion and reduce it atomically
+
+👤 Contribution
+
+Contributions are welcome! To contribute:
+
+Fork the repo
+
+Create a new branch (git checkout -b feature-name)
+
+Make changes and commit (git commit -m 'Add feature')
+
+Push to the branch (git push origin feature-name)
+
+Open a Pull Request
+
+📄 License
+
+This project is open-sourced under the MIT License.
+
+For queries, issues or improvements, feel free to raise an issue or submit a pull request.
+

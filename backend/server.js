@@ -1,5 +1,6 @@
 import server from "./app.js";
 import { connectDB } from "./config/db.js";
+console.log(process.env.PORT)
 
 const serverStar = server.listen(process.env.PORT, async (err) => {
   if (err) {

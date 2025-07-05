@@ -1,7 +1,7 @@
 import { timeStamp } from "console";
 import mongoose from "mongoose";
 
-const producSchema = new mongoose.Schema(
+const productSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -99,9 +99,14 @@ const producSchema = new mongoose.Schema(
       type: Date,
       default: Date.now(),
     },
-  },
+  }, 
   timeStamp
 );
 
-const ProductModel = mongoose.model("Product", producSchema);
+productSchema.index({ name: "text" });
+productSchema.index({ category: 1 });
+productSchema.index({ price: 1 });
+productSchema.index({ rating: -1 });
+
+const ProductModel = mongoose.model("Product", productSchema);
 export default ProductModel;
